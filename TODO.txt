@@ -1,0 +1,7 @@
+X Call to function get_score
+- When game starts return "Love-All"
+- When player 1 wins return "Fifteen-Love"
+- When player 1 wins 2 points return "Thirty-Love"
+- When player 1 wins 3 points return "Fourty-Love"
+- When player 1 wins 4 points return "Win for Player1"
+- When player 1 wins and player 2 wins return "Fifteen-All"
