@@ -5,9 +5,10 @@ sys.path.append('../')
 
 from game_tennis.game.GAME import *
 
-def test_callToGet_score():
+def test_gameStart():
     #ARRANGE
     #ACT
-    get_score()
+    result = get_score()
 
     #ASSERT
+    assert result == "Love-All"
