@@ -11,7 +11,10 @@ class Game:
         self._wins = player
 
     def get_score(self) -> str:
-        if self._wins == self._player1:
+        if self._wins == self._player1 :
             return "Fifteen-Love"
+        if self._wins == self._player2:
+            return "Fifteen-All"
+
         return "Love-All"
 
