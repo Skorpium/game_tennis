@@ -63,3 +63,17 @@ def test_gameStart():
 
     # ASSERT
     assert result == "Love-All"
+
+def test_onePlayerWinsOnePoint():
+    # ARRANGE
+    game = create_game()
+
+    # ACT - Add one point to player
+    player = Player("Alex", 5)
+    game.wins_point(player)
+    result = player.get_points()
+
+    # ASSERT
+    assert result == 6
+
+
