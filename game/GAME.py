@@ -11,6 +11,9 @@ class Player:
     def get_points(self):
         return self._points
 
+    def get_name(self) -> str:
+        return self._player
+
 class Game:
 
     def __init__(self, p1: Player, p2: Player):
@@ -23,6 +26,14 @@ class Game:
     def get_score(self) -> str:
         if self._player1.get_points() == 0 == self._player2.get_points():
             return "Love-All"
+        if 3 < self._player1.get_points() == self._player2.get_points() != 0:
+            return "Deuce"
 
+    def winner(self) -> str:
+        if self._player1.get_points() == (self._player2.get_points()-2):
+            return "Win for " + self._player1.get_name()
+        if self._player2.get_points() == (self._player1.get_points()-2):
+            return "Win for player 2"
+    pass
 
 

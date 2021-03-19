@@ -49,14 +49,16 @@ def teardown():
 def create_player(player: str) -> Player:
     return Player(player, 0)
 
-def create_game() -> Game:
-    player1 = create_player("AA")
-    player2 = create_player("BB")
-    return Game(player1, player2)
+def create_game(p1: Player, p2: Player) -> Game:
+    p1 = create_player("AA")
+    p2 = create_player("BB")
+    return Game(p1, p2)
 
 def test_gameStart():
     # ARRANGE
-    game = create_game()
+    player1 = Player("Alex", 5)
+    player2 = Player("Ona", 3)
+    game = create_game(player1, player2)
 
     # ACT
     result = game.get_score()
@@ -66,14 +68,25 @@ def test_gameStart():
 
 def test_onePlayerWinsOnePoint():
     # ARRANGE
-    game = create_game()
+    player1 = Player("Alex", 5)
+    player2 = Player("Ona", 5)
+    game = create_game(player1, player2)
 
     # ACT - Add one point to player
-    player = Player("Alex", 5)
-    game.wins_point(player)
-    result = player.get_points()
+    game.wins_point(player1)
+    result = player1.get_points()
 
     # ASSERT
     assert result == 6
 
+def test_winner():
+    # ARRANGE
+    player1 = Player("Alex", 5)
+    player2 = Player("Ona", 3)
+    game = create_game(player1, player2)
 
+    # ACT - When one player win return "Win for player X"
+    result = game.winner()
+
+    # ASSERT
+    assert result == "Win for " + game._player1.get_name()
