@@ -40,7 +40,7 @@ def test_P1onePointAndP2onePoint_ThenThirtyLove():
     # ARRANGE
     player1 = create_player("AA")
     player2 = create_player("BB")
-    game = create_game()
+    game = Game(player1, player2)
 
     # ACT - Player 1 and Player 2 wins 1 point (1,1)
     game.wins_point(player1)
@@ -52,13 +52,15 @@ def test_P1onePointAndP2onePoint_ThenThirtyLove():
 
 def test_P1onePointAndP2onePointAndP1twoPoints_thenThirtyLove():
     # ARRANGE
-    game = create_game()
+    player1 = create_player("AA")
+    player2 = create_player("BB")
+    game = Game(player1, player2)
 
     # ACT - Player 1 and Player 2 wins 1 point and Player 1 win 2 points (2,1)
 
-    game.wins_point("Player1")
-    game.wins_point("Player2")
-    game.wins_point("Player1")
+    game.wins_point(player1)
+    game.wins_point(player2)
+    game.wins_point(player1)
     result = game.get_score()
 
     # ASSERT

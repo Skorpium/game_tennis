@@ -22,10 +22,11 @@ class Game:
         player.add_points()
 
     def get_score(self) -> str:
-        if self._player1.get_points() == 1:
+        if self._player1.get_points() == 1 & (self._player2.get_points() == 0):
             return "Fifteen-Love"
-        if self._player1.get_points() == self._player2.get_points() == 1:
+        if self._player1.get_points() == 1 == self._player2.get_points():
             return "Fifteen-All"
+        if (self._player1.get_points() == 2) & (self._player2.get_points() == 1):
+            return "Thirty-Love"
 
         return "Love-All"
-
