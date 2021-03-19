@@ -16,7 +16,6 @@ class Game:
     def __init__(self, p1: Player, p2: Player):
         self._player1 = p1
         self._player2 = p2
-    #    self._wins = ""
 
     def wins_point(self, player: Player):
         player.add_points()
@@ -27,6 +26,6 @@ class Game:
         if self._player1.get_points() == 1 == self._player2.get_points():
             return "Fifteen-All"
         if (self._player1.get_points() == 2) & (self._player2.get_points() == 1):
-            return "Thirty-Love"
+            return "Thirty-Fifteen"
 
         return "Love-All"
