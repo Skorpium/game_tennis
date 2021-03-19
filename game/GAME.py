@@ -7,26 +7,24 @@ class Player:
 
     def add_points(self):
         self._points += 1
-        return self._points
 
     def get_points(self):
         return self._points
 
 class Game:
 
-    def __init__(self, player1: Player, player2: Player):
-        self._player1 = player1
-        self._player2 = player2
-        self._wins = ""
+    def __init__(self, p1: Player, p2: Player):
+        self._player1 = p1
+        self._player2 = p2
+    #    self._wins = ""
 
-    @staticmethod
     def wins_point(self, player: Player):
         player.add_points()
 
     def get_score(self) -> str:
         if self._player1.get_points() == 1:
             return "Fifteen-Love"
-        if self._wins == self._player2:
+        if self._player1.get_points() == self._player2.get_points() == 1:
             return "Fifteen-All"
 
         return "Love-All"
