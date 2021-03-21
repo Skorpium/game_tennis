@@ -7,8 +7,11 @@ class Game:
         self._player1 = p1
         self._player2 = p2
 
-    def wins_point(self, p: Player):
-        p.add_points()
+    def wins_point(self, num: float):
+        if num == 1:
+            self._player1.add_point()
+        if num == 2:
+            self._player2.add_point()
 
     def get_score(self) -> str:
         if self._player1.get_points() == 0 == self._player2.get_points():
@@ -21,12 +24,17 @@ class Game:
             return "Win for " + self._player1.get_name()
         if self._player2.get_points() == (self._player1.get_points()-2):
             return "Win for " + self._player2.get_name()
-
         return "fail"
 
     def get_Player(self, name: str) -> Player:
         if self._player1.get_name() == name:
             return self._player1
         if self._player2.get_name() == name:
+            return self._player2
+
+    def get_Player_byNum(self, num: float) -> Player:
+        if num == 1:
+            return self._player1
+        if num == 2:
             return self._player2
 

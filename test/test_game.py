@@ -70,8 +70,8 @@ def test_gameStart():
     assert result == "Love-All"
 
 def test_winner():
-    # ARRANGE
-    game = create_game(5, 3, "Alex", "Ona")
+    # ARRANGE - Player 1 win
+    game = create_game(6, 4, "Alex", "Ona")
 
     # ACT - When one player win return "Win for player X"
     result = game.winner()
@@ -84,10 +84,9 @@ def test_onePlayerWinsOnePoint():
     game = create_game(5, 5, "Alex", "Ana")
 
     # ACT - Add one point to player
-    game.wins_point(game.get_Player("Alex"))
-    result = game.get_Player("Alex").get_points()
+    game.wins_point(1)
+    result = game.get_Player_byNum(1).get_points()
 
     # ASSERT
     assert result == 6
-
 

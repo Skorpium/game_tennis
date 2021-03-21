@@ -5,7 +5,7 @@ class Player:
         self._points = points
         self._player = player
 
-    def add_points(self):
+    def add_point(self):
         self._points += 1
 
     def get_points(self):
