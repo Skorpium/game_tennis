@@ -1,7 +1,9 @@
 import pytest
 import sys
 sys.path.append('../')
-from game_tennis.game.GAME import *
+
+from game_tennis.game.GAME import Game
+from game_tennis.Player.Player import  Player
 
 @pytest.mark.parametrize("score_player1, score_player2, espected_result",
                          [(0, 0, "Love-All"),
@@ -87,3 +89,5 @@ def test_onePlayerWinsOnePoint():
 
     # ASSERT
     assert result == 6
+
+

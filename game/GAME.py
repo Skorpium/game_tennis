@@ -1,21 +1,8 @@
 # This is a sample Python script.
-class Player:
-
-    def __init__(self, player: str, points: float):
-        self._points = points
-        self._player = player
-
-    def add_points(self):
-        self._points += 1
-
-    def get_points(self):
-        return self._points
-
-    def get_name(self) -> str:
-        return self._player
+import sys
+from game_tennis.Player.Player import Player
 
 class Game:
-
     def __init__(self, p1: Player, p2: Player):
         self._player1 = p1
         self._player2 = p2
