@@ -46,19 +46,20 @@ def test_all(score_player1, score_player2, espected_result):
 def teardown():
     return
 
-def create_player(player: str) -> Player:
-    return Player(player, 0)
+def create_player1(points: float, name: str) -> Player:
+    return Player(name, points)
 
-def create_game(p1: Player, p2: Player) -> Game:
-    p1 = create_player("AA")
-    p2 = create_player("BB")
+def create_player2(points: float, name: str) -> Player:
+    return Player(name, points)
+
+def create_game(p1_points: float, p2_points: float, p1_name: str, p2_name: str):
+    p1 = create_player1(p1_points, p1_name)
+    p2 = create_player2(p2_points, p1_name)
     return Game(p1, p2)
 
 def test_gameStart():
     # ARRANGE
-    player1 = Player("Alex", 5)
-    player2 = Player("Ona", 3)
-    game = create_game(player1, player2)
+    game = create_game(0, 0, "Alex", "Ana")
 
     # ACT
     result = game.get_score()
@@ -66,27 +67,23 @@ def test_gameStart():
     # ASSERT
     assert result == "Love-All"
 
-def test_onePlayerWinsOnePoint():
-    # ARRANGE
-    player1 = Player("Alex", 5)
-    player2 = Player("Ona", 5)
-    game = create_game(player1, player2)
-
-    # ACT - Add one point to player
-    game.wins_point(player1)
-    result = player1.get_points()
-
-    # ASSERT
-    assert result == 6
-
 def test_winner():
     # ARRANGE
-    player1 = Player("Alex", 5)
-    player2 = Player("Ona", 3)
-    game = create_game(player1, player2)
+    game = create_game(5, 3, "Alex", "Ona")
 
     # ACT - When one player win return "Win for player X"
     result = game.winner()
 
     # ASSERT
     assert result == "Win for " + game._player1.get_name()
+
+def test_onePlayerWinsOnePoint():
+    # ARRANGE
+    game = create_game(5, 5, "Alex", "Ana")
+
+    # ACT - Add one point to player
+    game.wins_point(game.get_Player("Alex"))
+    result = game.get_Player("Alex").get_points()
+
+    # ASSERT
+    assert result == 6
